@@ -15,6 +15,8 @@ public interface BookService {
 
     List<Book> findByAuthor(String authorName);
 
+    List<Book> findByTitleAndAuthor(String title, String author);
+
     Book create(Book book) throws DuplicateIsbnException;
 
     void deleteById(String id);

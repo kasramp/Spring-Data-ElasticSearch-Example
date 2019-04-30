@@ -1,10 +1,14 @@
 package com.madadipouya.elasticsearch.springdata.example.service.impl;
 
-import com.madadipouya.elasticsearch.springdata.example.service.exception.BookNotFoundException;
 import com.madadipouya.elasticsearch.springdata.example.model.Book;
 import com.madadipouya.elasticsearch.springdata.example.repository.BookRepository;
 import com.madadipouya.elasticsearch.springdata.example.service.BookService;
+import com.madadipouya.elasticsearch.springdata.example.service.exception.BookNotFoundException;
 import com.madadipouya.elasticsearch.springdata.example.service.exception.DuplicateIsbnException;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,8 +20,11 @@ public class DefaultBookService implements BookService {
 
     private final BookRepository bookRepository;
 
-    public DefaultBookService(BookRepository bookRepository) {
+    private final ElasticsearchTemplate elasticsearchTemplate;
+
+    public DefaultBookService(BookRepository bookRepository, ElasticsearchTemplate elasticsearchTemplate) {
         this.bookRepository = bookRepository;
+        this.elasticsearchTemplate = elasticsearchTemplate;
     }
 
     @Override
@@ -35,6 +42,13 @@ public class DefaultBookService implements BookService {
     @Override
     public List<Book> findByAuthor(String authorName) {
         return bookRepository.findByAuthorName(authorName);
+    }
+
+    @Override
+    public List<Book> findByTitleAndAuthor(String title, String author) {
+        BoolQueryBuilder criteria = QueryBuilders.boolQuery();
+        criteria.must().addAll(List.of(QueryBuilders.matchQuery("authorName", author), QueryBuilders.matchQuery("title", title)));
+        return elasticsearchTemplate.queryForList(new NativeSearchQueryBuilder().withQuery(criteria).build(), Book.class);
     }
 
     @Override

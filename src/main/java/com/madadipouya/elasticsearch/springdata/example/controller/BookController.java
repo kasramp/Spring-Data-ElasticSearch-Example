@@ -42,6 +42,12 @@ public class BookController {
     }
 
     @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/query")
+    public List<Book> getBooksByAuthorAndTitle(@RequestParam(value = "title") String title, @RequestParam(value = "author") String author) {
+        return bookService.findByTitleAndAuthor(title, author);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/{id}")
     public Book updateBook(@PathVariable String id, @RequestBody BookDto book) throws BookNotFoundException {
         return bookService.update(id, BookDto.transform(book));
