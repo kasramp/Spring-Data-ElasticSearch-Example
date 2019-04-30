@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 @RestControllerAdvice
-public class GlobalControllerExceptionHandler {
+public class BookControllerExceptionHandler {
 
     @ExceptionHandler(value = {BookNotFoundException.class, DuplicateIsbnException.class})
-    public ResponseEntity<Body> unknownException(Exception ex) {
+    public ResponseEntity<Body> doHandleBookExceptions(Exception ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Body(ex.getMessage()));
     }
 
