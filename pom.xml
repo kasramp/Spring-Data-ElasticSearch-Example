@@ -11,8 +11,8 @@
 	<groupId>com.madadipouya.elasticsearch.springdata.example</groupId>
 	<artifactId>elasticsearch-springdata</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ElasticSearch SpringData</name>
-	<description>ElasticSearch SpringData</description>
+	<name>Elasticsearch SpringData</name>
+	<description>Elasticsearch SpringData</description>
 
 	<properties>
 		<java.version>11</java.version>
