@@ -41,3 +41,15 @@ If your Elasticsearch URI is not `localhost` and/or the cluster name is differen
 - `ES_CLUSTER_NAME`
 
 Once everything is up and running open the browser and go to [http://localhost:8080](http://localhost:8080). You should see Swagger to interact with.
+
+## Run testcontainers tests
+
+The integration tests written relying on [testcontainers](https://www.testcontainers.org/) to spin up Elasticsearch on the spot to run tests against.
+
+To run them just execute below command:
+
+```bash
+$ mvn clean verify
+```
+
+Make sure you have your docker running.
