@@ -6,7 +6,7 @@ This example demonstrates how to use Spring Data Elasticsearch to do simple CRUD
 
 You can find the tutorial about this example at the below link:
 
-[https://blog.madadipouya.com](https://blog.madadipouya.com)
+[https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/](https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/)
 
 For this example, a Book controller created that allows to do the following operations with Elasticsearch:
 
