@@ -15,6 +15,7 @@ For this example, a Book controller created that allows to do the following oper
 - Update a book by Id
 - Delete a book by Id
 - Search for a book by ISBN
+- Fuzzy search for books by author and title
 
 
 ## How to run
