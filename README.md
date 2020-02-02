@@ -6,7 +6,7 @@ This example demonstrates how to use Spring Data Elasticsearch to do simple CRUD
 
 You can find the tutorial about this example at the below link:
 
-[https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/](https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/)
+[https://geekyhacker.com/2019/05/01/getting-started-with-spring-data-elasticsearch/](https://geekyhacker.com/2019/05/01/getting-started-with-spring-data-elasticsearch/)
 
 For this example, a Book controller created that allows to do the following operations with Elasticsearch:
 
@@ -47,7 +47,7 @@ Once everything is up and running open the browser and go to [http://localhost:8
 The integration tests written relying on [testcontainers](https://www.testcontainers.org/) to spin up Elasticsearch on the spot to run tests against.
 
 To know more about container read this tutorial:
-[https://blog.madadipouya.com/2019/05/08/integration-test-with-testcontainers-in-java/](https://blog.madadipouya.com/2019/05/08/integration-test-with-testcontainers-in-java/)
+[https://geekyhacker.com/2019/05/08/integration-test-with-testcontainers-in-java/](https://geekyhacker.com/2019/05/08/integration-test-with-testcontainers-in-java/)
 
 To run them just execute below command:
 
