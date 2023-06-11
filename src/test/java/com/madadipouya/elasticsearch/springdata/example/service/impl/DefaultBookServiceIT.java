@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -33,10 +33,10 @@ class DefaultBookServiceIT {
     private BookService bookService;
 
     @Autowired
-    ElasticsearchTemplate template;
+    private ElasticsearchTemplate template;
 
     @Container
-    private static ElasticsearchContainer elasticsearchContainer = new BookElasticsearchContainer();
+    private static final ElasticsearchContainer elasticsearchContainer = new BookElasticsearchContainer();
 
     @BeforeAll
     static void setUp() {
@@ -166,9 +166,9 @@ class DefaultBookServiceIT {
     }
 
     private void recreateIndex() {
-        if (template.indexExists(Book.class)) {
-            template.deleteIndex(Book.class);
-            template.createIndex(Book.class);
+        if (template.indexOps(Book.class).exists()) {
+            template.indexOps(Book.class).delete();
+            template.indexOps(Book.class).create();
         }
     }
 

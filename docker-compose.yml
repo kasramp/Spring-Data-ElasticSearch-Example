@@ -1,9 +1,10 @@
 elasticsearch:
-  image: elasticsearch:6.4.3
+  image: elasticsearch:8.7.0
   container_name: elasticsearch
   ports:
-    - "9300:9300"
     - "9200:9200"
   environment:
     - discovery.type=single-node
     - cluster.name=elasticsearch
+    # Since ES 8, SSL is on by default, disabling on local
+    - xpack.security.enabled=false
