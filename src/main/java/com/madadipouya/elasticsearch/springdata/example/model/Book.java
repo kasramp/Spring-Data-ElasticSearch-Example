@@ -3,7 +3,7 @@ package com.madadipouya.elasticsearch.springdata.example.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-@Document(indexName = "books", type = "book")
+@Document(indexName = "books")
 public class Book {
 
     @Id

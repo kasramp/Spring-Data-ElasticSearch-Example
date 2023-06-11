@@ -2,8 +2,8 @@ package com.madadipouya.elasticsearch.springdata.example.validator;
 
 import com.madadipouya.elasticsearch.springdata.example.metadata.PublicationYear;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.time.Year;
 
 public class PublicationYearValidator implements ConstraintValidator<PublicationYear, Integer> {

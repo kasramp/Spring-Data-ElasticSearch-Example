@@ -2,8 +2,8 @@ package com.madadipouya.elasticsearch.springdata.example.metadata;
 
 import com.madadipouya.elasticsearch.springdata.example.validator.PublicationYearValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
