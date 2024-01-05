@@ -17,7 +17,21 @@ For this example, we created a Book controller that allows doing the following o
 
 ## How to run
 
-The first thing to do is to start Elasticsearch. For that, you can use the `docker-compose` file in this project  and run it like this:
+### Spring Boot 3.1
+
+Since this project uses Spring Boot 3.1, all you need to do is to run the application:
+
+```bash
+$ ./mvnw spring-boot:run
+```
+
+Spring Boot automatically detects the `docker-compose` file and starts the Elasticsearch container.
+
+### Spring Boot 3.0 and prior
+
+The older version of this project uses Spring Boot 3.0 which does not have Spring Boot Docker Compose integration.
+
+To run an older version of the application, the first thing to do is to start Elasticsearch. For that, you can use the `docker-compose` file in this project  and run it like this:
 
 ```bash
 $ docker-compose -f docker-compose up -d
